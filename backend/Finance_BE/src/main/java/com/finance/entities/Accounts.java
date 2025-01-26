@@ -17,8 +17,8 @@ public class Accounts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String moneyLender;
-    private String borrower;
+    private int moneyLender;
+    private int borrower;
     private Float principalAmount;
     private Float commission;
     private Float amount;
