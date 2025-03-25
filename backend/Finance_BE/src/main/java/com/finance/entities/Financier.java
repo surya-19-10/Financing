@@ -23,5 +23,6 @@ public class Financier {
     private String secondaryContact;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
+    @NonNull
     private String email;
 }
