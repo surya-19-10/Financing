@@ -1,8 +1,12 @@
-import { LayoutDashboardIcon, PlusIcon } from "lucide-react"
+import { LayoutDashboardIcon, LogOutIcon, PlusIcon } from "lucide-react"
 import Sidenav, { SidenavChild } from "./Sidenav"
 import Content from "./Content"
 
 const Layout = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    window.location.reload();
+  }
   return (
     <>
         <div className="flex w-full">
@@ -13,7 +17,11 @@ const Layout = () => {
             </Sidenav>
             </div>
             <div className="flex-1 flex-col">
-              <div className="h-15 w-full bg-basecolor shadow shadow-gray-700"></div>
+              <div className="h-15 w-full flex justify-end bg-basecolor shadow shadow-gray-700">
+                <div className="p-5 text-white">
+                  <LogOutIcon onClick={handleLogout}/>
+                </div>
+              </div>
               <div className="h-[91vh] ml-72">
                   <Content />
               </div>

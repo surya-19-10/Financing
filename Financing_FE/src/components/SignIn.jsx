@@ -3,6 +3,9 @@ import { modeContext } from "./Login"
 
 const SignIn = () => {
   const {setMode} = useContext(modeContext);
+  const handleLogin = () => {
+    localStorage.setItem("token", "surya");
+  }
   return (
     <div className="flex flex-col items-center justify-center m-5 p-5 gap-7">
         <div className="flex flex-col gap-3">
@@ -21,7 +24,7 @@ const SignIn = () => {
             </div>
             <div className="flex justify-between">
             <button onClick={()=> setMode("signup")} className="button mt-7 w-25">SIGN UP</button>
-            <button className="button mt-7 w-25">LOGIN</button>
+            <button className="button mt-7 w-25" onClick={handleLogin}>LOGIN</button>
             </div>
         </form>
     </div>
