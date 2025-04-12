@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+    --color-basecolor : #2D336B;
+    --color-basecolor2: #7886C7;
+    --color-basecolor3: #A9B5DF;
+    --color-basecolor4: #FFF2F2;
+
+    /* Green Palette */
+    /* --color-basecolor : #123524;
+    --color-basecolor2: #3E7B27;
+    --color-basecolor3: #85A947;
+    --color-basecolor4: #EFE3C2; */
+
+    --color-darkbase : #181C14;
+    --color-darkbase2: #3C3D37;
+    --color-darkbase3: #697565;
+    --color-darkbase4: #ECDFCC;
+}
+
+.button {
+    @apply bg-basecolor text-white font-semibold rounded cursor-pointer p-3 shadow-md shadow-basecolor2 hover:bg-basecolor2
+}
