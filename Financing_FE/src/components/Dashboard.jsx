@@ -1,28 +1,52 @@
 import { IndianRupeeIcon } from "lucide-react"
 import InterestTable from "./InterestTable"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 const Dashboard = () => {
+  const [data, setData] = useState({
+    "principalAmount": "",
+    "commission": "",
+    "interest": "",
+    "accountDetailsResponseVOs": []
+  });
+  useEffect(()=>{
+    axios({
+        url: 'http://localhost:8080/account/details',
+        method: 'POST',
+        data: JSON.stringify({
+            "lender": "dsp@gmail.com"
+        }),
+        headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkc3BAZ21haWwuY29tIiwiaWF0IjoxNzQ0NTQwODQ2LCJleHAiOjE3NDQ1NDI2NDZ9.LG7qI1FuRGR0K-DZqos2X58KGT3fDFpLcP67bFZLxmY",
+            "Content-Type": "application/json"
+        },
+    }).then((res) => {
+        console.log(res.data)
+        setData(res.data)
+  }).catch((res) => console.error(res))
+  },[])
   return (
     <div className="flex flex-col">
         <div className="flex justify-evenly">
             <div className="m-9 p-2 w-72 flex flex-col gap-5 justify-center items-center rounded bg-basecolor2 shadow-md shadow-basecolor3">
                 <h1 className="text-4xl text-basecolor4 font-medium">Investment</h1>
                 <div className="flex items-center text-white font-semibold">
-                    <h2 className="text-2xl">20000</h2>
+                    <h2 className="text-2xl">{data.principalAmount}</h2>
                     <span><IndianRupeeIcon size={20}/></span>
                 </div>
             </div>
             <div className="m-9 p-2 w-72 flex flex-col gap-5 justify-center items-center rounded bg-basecolor2 shadow-md shadow-basecolor3">
                 <h1 className="text-4xl text-basecolor4 font-medium">Commission</h1>
                 <div className="flex items-center text-white font-semibold">
-                    <h2 className="text-2xl">2000</h2>
+                    <h2 className="text-2xl">{data.commission}</h2>
                     <span><IndianRupeeIcon size={20}/></span>
                 </div>
             </div>
             <div className="m-9 p-2 w-72 flex flex-col gap-5 justify-center items-center rounded bg-basecolor2 shadow-md shadow-basecolor3">
                 <h1 className="text-4xl text-basecolor4 font-medium">Interest</h1>
                 <div className="flex items-center text-white font-semibold">
-                    <h2 className="text-2xl">10000</h2>
+                    <h2 className="text-2xl">{data.interest}</h2>
                     <span><IndianRupeeIcon size={20}/></span>
                 </div>
             </div>
@@ -69,7 +93,7 @@ const Dashboard = () => {
             </div>
             </form>
             <div className="m-5">
-                <InterestTable />
+                <InterestTable table={data.accountDetailsResponseVOs}/>
             </div>
         </div>
     </div>

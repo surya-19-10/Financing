@@ -5,7 +5,7 @@ import Content from "./Content"
 const Layout = () => {
   const handleLogout = () => {
     localStorage.removeItem("token")
-    window.location.reload();
+    window.location.reload()
   }
   return (
     <>
@@ -19,7 +19,7 @@ const Layout = () => {
             <div className="flex-1 flex-col">
               <div className="h-15 w-full flex justify-end bg-basecolor shadow shadow-gray-700">
                 <div className="p-5 text-white">
-                  <LogOutIcon onClick={handleLogout}/>
+                  <LogOutIcon onClick={handleLogout} className="hover: cursor-pointer"/>
                 </div>
               </div>
               <div className="h-[91vh] ml-72">

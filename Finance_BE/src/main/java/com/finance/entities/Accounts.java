@@ -21,7 +21,7 @@ public class Accounts {
     private int borrower;
     private Float principalAmount;
     private Float commission;
-    private Float amount;
+    private Float interest;
     public LocalDate signedDate;
     private LocalDate endDate;
     private LocalDateTime createdDate;

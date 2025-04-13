@@ -20,7 +20,7 @@ function beCall() {
     url: 'http://localhost:8080/account/create',
     method: 'POST',
     headers: {
-      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkc3BAZ21haWwuY29tIiwiaWF0IjoxNzQyNjM0NDg0LCJleHAiOjE3NDI2MzYyODR9.LwehH33ZxhBtFAMIpH7nE65Q4nYNILjCZ16g4Xksdpc",
+      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkc3BAZ21haWwuY29tIiwiaWF0IjoxNzQ0NTQwODQ2LCJleHAiOjE3NDQ1NDI2NDZ9.LG7qI1FuRGR0K-DZqos2X58KGT3fDFpLcP67bFZLxmY",
       "Content-Type": "application/json"
     },
     data: JSON.stringify(inputs)
